@@ -13,7 +13,6 @@ def predict_corona(sore_throat, sense_of_taste, contact_indication):
     pred = '{0:.{1}f}'.format(prediction[0][0], 2)
     return float(pred)
 
-
 def main():
     st.title("Covid-19 Prediction Model")
     html_temp = """
@@ -22,7 +21,6 @@ def main():
     </div>
     """
     st.markdown(html_temp, unsafe_allow_html=True)
-
     sorethroat = st.text_input("Sore Throat", "")
     senseoftaste = st.text_input("Sense of taste", "")
     contactindication = st.text_input("Fever", "")
@@ -45,7 +43,6 @@ def main():
             st.markdown(danger_html, unsafe_allow_html=True)
         else:
             st.markdown(safe_html, unsafe_allow_html=True)
-
 
 if __name__ == '__main__':
     main()

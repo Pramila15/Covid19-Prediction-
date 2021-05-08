@@ -7,6 +7,7 @@ from sklearn import metrics
 import seaborn as sn
 import matplotlib.pyplot as plt
 import numpy as np
+import unittest
 
 warnings.filterwarnings("ignore")
 
@@ -51,6 +52,21 @@ sn.heatmap(confusion_matrix, annot=True)
 
 print('Accuracy: ', metrics.accuracy_score(y_test, y_pred))
 plt.show()
+Testcount = 0;
+class TestAccuracy(unittest.TestCase):
+
+    def test_predicted_acccuracy(self):
+        print("Test Case Name: Predicted Accuracy")
+        print("Test Case Number: ", (Testcount+1))
+        self.assertEqual(metrics.accuracy_score(y_test, y_pred), 0.75 , "Should be 0.75")
+
+    def test_accuracy(self):
+        print("Test Case Name: Actual Accuracy")
+        print("Test Case Number: ", (Testcount + 2))
+        self.assertEqual(metrics.accuracy_score(y_test, y_pred)-0.15, 0.75, "Should be 0.75")
+
+if __name__ == '__main__':
+    unittest.main()
 
 # save the model to disk
 filename = 'finalized_model.sav'
